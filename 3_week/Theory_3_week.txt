@@ -1,0 +1,38 @@
+Class Example{ // класс + Название//
+  public: //публичное поле//
+    Example(){} //конструктор//
+    Example(int a){
+      a_ = a;
+    }
+    int Somemethod(int b){
+      return a_ + b;
+    }
+    Example operator+(Example&...){
+      Example ex(a_ + operator.a);
+      return ex;
+    }
+    private: //приватное поле//
+    int a_;
+}
+
+vector
+
+  1. push.back() -> 0(1);
+
+  смещение массива при расширении -- O(N);
+  для решения проблемы смещения выделяем изначально k ячеек памяти. В таком случае:
+  Первые k push_back'ов -- O(1), затем -- O(k);
+
+  Для этого, удобно положить k_{i} = 2*k_{i-1} // Для такого случая, амортизированная сложность
+  push.back() -- O(1);
+
+  I. Банковский метод (метод оценки сложности алгоритмов)
+  II. Метод потенциалов
+
+template <typedef T>
+class Example{
+  Example (T & a){
+    arr_ = new T[20];
+    arr_[0] = a;
+  }
+}
