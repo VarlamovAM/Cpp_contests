@@ -229,7 +229,7 @@ private:
                     }
                     if (x->left != nullptr) {
                         if (x->left->factor == 0) {
-                            big_left_rotation(x->parent);
+                            right_left_rotation(x->parent);
                             x->parent->factor = 0;
                             x->factor = 0;
                             x->parent->left->factor = 0;
@@ -395,7 +395,7 @@ private:
             if (q.front()->right != nullptr) {
                 q.push(q.front()->right);
             }
-            cout << q.front()->key << " ";
+            std::cout << q.front()->key << " ";
             q.pop();
         }
     }
@@ -423,13 +423,13 @@ private:
 int main() {
     int a;
     Tree<int> tr;
-    while (cin) {
-        cin >> a;
-        if (cin)
+    while (std::cin) {
+        std::cin >> a;
+        if (std::cin)
             tr.insert(a);
     }
-    cout << endl;
-    t.print_tree();
+    std::cout << std::endl;
+    tr.print_tree();
     return 0;
 
 }
