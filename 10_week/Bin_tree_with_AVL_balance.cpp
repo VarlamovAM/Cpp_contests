@@ -75,8 +75,8 @@ private:
 
 
     Node* lookfor(Node* x, Key k) const { //поиск узла в поддереве с корнем x с заданным ключом, nullptr если не найден
-        while (x != nullptr and (Comp(k, x->key) or !Comp(k, x->key))) { // х не пуст и выполняется либо ключ<k, либо ключ>k
-            if (Comp(k, x->key)) // если ключ>k, то идем по дереву влево, так как слева элементы, меньшие корня
+        while (x != nullptr and ((k > x->key) or (k < x->key))) { // х не пуст и выполняется либо ключ<k, либо ключ>k
+            if (k < x->key) // если ключ>k, то идем по дереву влево, так как слева элементы, меньшие корня
                 x = x->left;
             else x = x->right; // если наоборот, то идем вправо к большим корня элементам
         }
@@ -429,6 +429,8 @@ int main() {
             tr.insert(a);
     }
     std::cout << std::endl;
+    tr.erase(5);
+    std::cout << tr.find(4) << " " << tr.find(6) << " ";
     tr.print_tree();
     return 0;
 
